@@ -20,7 +20,7 @@
 }
 
 .h1{
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-shadow: -1px -1px 0 #ff6c00, 1px -1px 0 #ff6c00, -1px 1px 0 #ff6c00, 1px 1px 0 #ff6c00;
     color: aliceblue;
     margin: 0;
     padding: 0;
@@ -35,7 +35,7 @@
 
 .form-box{
     width: 380px;
-    height: 480px;
+    height: 500px;
     position: relative;
     margin: 6% auto;
     background: linear-gradient(rgba(10, 29, 72, 0.9), rgba(255, 0, 0, 0.4));
@@ -93,6 +93,7 @@
 
 }
 .input-field{
+    text-align: center;
     width: 100%;
     padding: 10px 0;
     margin: 5px 0;
@@ -100,6 +101,7 @@
     border-right: 0;
     border-top: 0;
     border-bottom: 1px solid #999;
+    -webkit-text-fill-color: #ffad06;
     outline: none;
     background: transparent;
 }
@@ -107,12 +109,27 @@
 .submit-btn{
     width: 85%;
     padding: 10px 30px;
+    margin-left: 15px;
     cursor: pointer;
     display: block;
     background: linear-gradient(to right, #ff105f, #031d8a);
     border: 0;
     outline: none;
     border-radius: 30px;
+    color: white;
+}
+
+.submit-register-btn{
+    width: 85%;
+    padding: 10px 30px;
+    margin-left: 30px;
+    cursor: pointer;
+    display: block;
+    background: linear-gradient(to right, #ff105f, #031d8a);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    color: white;
 }
 
 .check-box{
