@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<link th:href="@{/css/style.css}" rel="stylesheet"/>
+	<head>
+		<title> Login Page </title>
+	</head>
+	<body>
+		<div class="hero">
+			<p>username: admin <br>
+				password: password</p>
+			<div class="form-box">
+				<div class="button-box">
+					<div id="btn"></div>
+					<button type="button" class="toggle-btn" onclick="login()"> Log In </button>
+					<button type="button" class ="toggle-btn" onclick="register()"> Register </button>
+				</div>
+				<div> </div>
+				<div> </div>
+				<form id ="login" class="input-group">
+					<input id="username" type="text" class="input-field" placeholder="Member Login" required>
+					<input id="password" type="password" class="input-field" placeholder="Enter Password" required>
+					<span> <i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle()"></i></span>
+					<input type="checkbox" class="check-box"><span> Remember Password </span>
+					<button type="button" class="submit-btn" onclick="validate()"> Log In</button>
+				</form>
+				<form id="register" class="input-group">
+					<input type="username" class="input-field" placeholder="username" required>
+					<input type="password" class="input-field" placeholder="enter password" required>
+					<span> <i class="fa fa-eye" aria-hidden="true" onclick="toggle()"></i></span>
+					<input type="password" class="input-field" placeholder="confirm password" required>
+					<span> <i class="fa fa-eye" aria-hidden="true" onclick="toggle()"></i></span>
+					<input type="checkbox" class="check-box"><span> I agree to the terms & conditions </span>
+					<button type="submit" class="submit-btn"> Register</button>
+				</form>
+			</div>
+		</div>
+		
+	</body>
+</html>
