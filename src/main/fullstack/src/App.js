@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import Homepage from "./components/Homepage";
 import Navigation from "./components/Navigation";
+import AutoLayoutExample from './components/ProfileContainer';
+import { NavBar } from './components/NavBar';
 
 const TestData = () =>{
 
@@ -22,7 +24,8 @@ function App() {
   return (
     <div className="App">
       <Navigation />
-      
+      <NavBar />
+      <AutoLayoutExample />
     </div>
   );
 }
