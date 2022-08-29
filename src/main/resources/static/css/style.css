@@ -3,8 +3,9 @@
     padding: 0;
     font-family: sans-serif;
 }
+
 .hero{
-    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url("http://lol-stats.net/uploads/bDRCpHPOp09PJD06sUqcywGZWV8M63fytsnaOTPE.jpeg");
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url("https://i.imgur.com/sXVYpXy.jpg");
     background-color: #ffad06;
     height: 100%;
     width: 100%;
@@ -37,8 +38,8 @@
     height: 480px;
     position: relative;
     margin: 6% auto;
-    background: #e7b098;
-    opacity: 98%;
+    background: linear-gradient(rgba(10, 29, 72, 0.9), rgba(255, 0, 0, 0.4));
+    opacity: 99%;
     padding: 5px;
     overflow: hidden;
     border-radius: 15px;
@@ -53,7 +54,7 @@
     text-align: center;
     align-self: center;
     justify-content: center;
-    left: 40;
+    left: 40px;
 }
 
 .button-box{
@@ -71,6 +72,7 @@
     border: 0;
     outline: none;
     position: relative;
+    color: #d2bdbd;
 }
 
 #btn{
@@ -79,7 +81,7 @@
     position: absolute;
     width: 110px;
     height: 100%;
-    background: linear-gradient(to right, #ff105f, #a97407);
+    background: linear-gradient(to right, #ff105f, #0714a9);
     border-radius: 30px;
     transition: .5s;
 }
@@ -107,7 +109,7 @@
     padding: 10px 30px;
     cursor: pointer;
     display: block;
-    background: linear-gradient(to right, #ff105f, #a97407);
+    background: linear-gradient(to right, #ff105f, #031d8a);
     border: 0;
     outline: none;
     border-radius: 30px;
