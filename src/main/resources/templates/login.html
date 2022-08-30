@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<link th:href="@{/css/style.css}" rel="stylesheet"/>
+	<head>
+		<title> Login Page </title>
+	</head>
+	<body>
+		<div class="hero">
+			<p>username: admin <br>
+				password: password</p>
+			<div class="form-box">
+				<div class="button-box">
+					<div id="btn"></div>
+					<button type="button" class="toggle-btn" onclick="login()"> Log In </button>
+					<button type="button" class ="toggle-btn" onclick="register()"> Register </button>
+				</div>
+				<div> </div>
+				<div> </div>
+				<form id="login" class="input-group">
+					<input id="username" type="text" class="input-field" placeholder="Member Login" required>
+					<input id="password" type="password" class="input-field" placeholder="Enter Password" required>
+					<span> <i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle()"></i></span>
+					<input type="checkbox" class="check-box"><span> Remember Password </span>
+					<button type="button" class="submit-btn" onclick="validate()"> Log In</button>
+				</form>
+				<form id="register" class="input-group">
+					<input type="username" class="input-field" placeholder="username" required>
+					<input type="text" class="input-field" placeholder="gamer-tag" required>
+					<input type="password" class="input-field" placeholder="enter password" required>
+					<span> <i class="fa fa-eye" aria-hidden="true" id="eye1" onclick="toggle()"></i></span>
+					<input type="password" class="input-field" placeholder="confirm password" required>
+					<span> <i class="fa fa-eye" aria-hidden="true" id="eye2" onclick="toggle()"></i></span>
+					<input type="checkbox" class="check-box" required><span> I agree to the terms & conditions </span>
+					<button type="button" class="submit-register-btn"> Register</button>
+				</form>
+			</div>
+		</div>
+		<script>
+			let x = document.getElementById("login");
+			let y = document.getElementById("register");
+			let z = document.getElementById("btn");
+			
+			function register(){
+				console.log(x.style.left);
+				x.style.left = "-350px";
+				y.style.left = "50px";
+				z.style.left = "110px";
+			}
+			
+			function login(){
+				x.style.left = "60px";
+				y.style.left = "450px";
+				z.style.left = "0px";
+			}
+			
+			function validate(){
+				let username = document.getElementById("username").value;
+				let password = document.getElementById("password").value;
+				
+				if(username === "admin" && password === "password"){
+					alert("Login Successfully");
+					window.location.href="welcome.html";
+				}
+				else{
+					alert("Wrong password");
+				}
+			}
+			
+			let state = false;
+			
+			function toggle(){
+				if(state){
+					document.getElementById("password").setAttribute("type", "password");
+					state = false;
+				}
+				else{
+					document.getElementById("password").setAttribute("type", "text");
+					state = true;
+				}
+			}
+		</script>
+		
+	</body>
+</html>

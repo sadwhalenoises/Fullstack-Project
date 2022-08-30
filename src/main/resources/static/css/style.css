@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.hero{
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url("https://i.imgur.com/sXVYpXy.jpg");
+    background-color: #ffad06;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+
+.nav li {
+    display:inline-block;
+}
+
+.h1{
+    text-shadow: -1px -1px 0 #ff6c00, 1px -1px 0 #ff6c00, -1px 1px 0 #ff6c00, 1px 1px 0 #ff6c00;
+    color: aliceblue;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: "arial", serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-35%);
+    transform: translateY(-50%);
+}
+
+.form-box{
+    width: 380px;
+    height: 500px;
+    position: relative;
+    margin: 6% auto;
+    background: linear-gradient(rgba(10, 29, 72, 0.9), rgba(255, 0, 0, 0.4));
+    opacity: 99%;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.form-box h2{
+    color: #ffad06;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: medium;
+    text-align: center;
+    align-self: center;
+    justify-content: center;
+    left: 40px;
+}
+
+.button-box{
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+
+.toggle-btn{
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    color: #d2bdbd;
+}
+
+#btn{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #ff105f, #0714a9);
+    border-radius: 30px;
+    transition: .5s;
+}
+.input-group{
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+
+}
+.input-field{
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 1px solid #999;
+    -webkit-text-fill-color: #ffad06;
+    outline: none;
+    background: transparent;
+}
+
+.submit-btn{
+    width: 85%;
+    padding: 10px 30px;
+    margin-left: 15px;
+    cursor: pointer;
+    display: block;
+    background: linear-gradient(to right, #ff105f, #031d8a);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    color: white;
+}
+
+.submit-register-btn{
+    width: 85%;
+    padding: 10px 30px;
+    margin-left: 30px;
+    cursor: pointer;
+    display: block;
+    background: linear-gradient(to right, #ff105f, #031d8a);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    color: white;
+}
+
+.check-box{
+    margin: 30px 10px 30px 0;
+}
+
+.fa{
+    font-size: 20px;
+    color: #7a797e;
+}
+span{
+    color: #777;
+    font-size: 12px;
+    bottom: 68px;
+    position: absolute;
+}
+
+#login{
+    left: 60px
+}
+
+#register{
+    left: 450px;
+}
