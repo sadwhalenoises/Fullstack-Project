@@ -11,22 +11,36 @@ const LastMatch = (props) => {
     const [lastMatchData, setLastMatchData] = useState({})
     const [lastMatchPlayerData, setLastMatchPlayerData] = useState({})
 
-    const API_KEY = "RGAPI-0f5f77f9-f36d-467e-8123-e3bb8b56316b"
+    const API_KEY = ;
 
     
 
     async function handleClick(event) {
         var sumNameAPICallString = "https://" + regionSelect + ".api.riotgames.com/lol/summoner/v4/summoners/by-name/" + playerSearch + "?api_key=" + API_KEY
-        await axios.get(sumNameAPICallString).then(async function (response) {
-            //Success
+        let puuid
+        
+        const playerDataGet = async () => {
+            try {
+                let response = await axios.get(sumNameAPICallString)
+                console.log(response.data)
+                setPlayerData(response.data)
+                puuid = playerData.puuid
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        
+        
+        // await axios.get(sumNameAPICallString).then(async function (response) {
+        //     //Success
             
-            console.log(playerData)
-            setPlayerData(response.data)
+        //     console.log(playerData)
+        //     setPlayerData(response.data)
            
-        }).catch(async function (error) {
-            //Error
-            console.log(error)
-        })
+        // }).catch(async function (error) {
+        //     //Error
+        //     console.log(error)
+        // })
         
         var region
         
@@ -39,28 +53,39 @@ const LastMatch = (props) => {
         } else {
             region = "sea"
         }
-
-        console.log(playerData.puuid)
-        var puuid = playerData.puuid
         
-        
-
         var lastMatchAPICallString = "https://" + region + ".api.riotgames.com/lol/match/v5/matches/by-puuid/" + puuid + "/ids?start=0&count=1&api_key=" + API_KEY
-        await axios.get(lastMatchAPICallString).then(async function(response){
-            //Success
+        
+        try{
+            let response = await axios.get(lastMatchAPICallString);
             console.log(response.data)
             setLastMatchData(response.data)
-        }).catch(async function (error) {
+        }catch(error) {
             console.log(error)
-        }) 
+        }
+        // await axios.get(lastMatchAPICallString).then(async function(response){
+        //     //Success
+        //     console.log(response.data)
+        //     setLastMatchData(response.data)
+        // }).catch(async function (error) {
+        //     console.log(error)
+        // }) 
 
         var lastMatchAPIDataCallString = "https://" + region + ".api.riotgames.com/lol/match/v5/matches/" + lastMatchData + "?api_key=" + API_KEY
-        await axios.get(lastMatchAPIDataCallString).then(async function(response){
+        
+        try{
+            let response = await axios.get(lastMatchAPIDataCallString)
             console.log(response.data)
             setLastMatchPlayerData(response.data)
-        }).catch(async function(error){
+        }catch (error) {
             console.log(error)
-        })
+        }
+        // await axios.get(lastMatchAPIDataCallString).then(async function(response){
+        //     console.log(response.data)
+        //     setLastMatchPlayerData(response.data)
+        // }).catch(async function(error){
+        //     console.log(error)
+        // })
     }
 
     // function unixTimetoString(number) {
