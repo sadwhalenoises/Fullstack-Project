@@ -1,3 +1,4 @@
+
 * {
   margin:0;
   padding:0;
@@ -161,7 +162,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-top:0;
   padding:260px 0 100px 0;
   background-image: url(https://i.imgur.com/bm0B7zn.jpg); /* REPLACE WITH IMAGE FOR PROFILE BACKGROUND */
-  background-color:#000000c2;
+  background-color:#00000085;
   background-blend-mode:color;
   background-position: top center;
   background-size: cover;
@@ -172,5 +173,41 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-weight: 700;
   letter-spacing: 0.9px;
   padding:8px 10px;
-  background: linear-gradient(130.7deg, rgba(250, 38, 102, 0.5) -5.91%, rgba(40, 6, 163, 0.5) 90.3%)
+  background: linear-gradient(130.7deg, rgba(250, 38, 102, 0.5) -5.91%, rgba(40, 6, 163, 0.5) 90.3%);
+}
+
+#test{
+  display: flex;
+  justify-content: start !important;
+}
+#icon{
+  display: flex;
+  justify-content: flex-end;
+  
+}
+#icon img{
+  border-radius: 50%;
+
+}
+
+#level{
+  position: relative;
+  background-color: black;
+  border-radius: 5px;
+  right: 80px;
+  top: 120px;
+  height: 21px;
+  width: 35px;
+}
+
+.topChamps{
+  justify-content: start;
+  display: flex;
+}
+
+.topChamps img{
+
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
 }
