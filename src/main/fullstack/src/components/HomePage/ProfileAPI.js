@@ -5,6 +5,7 @@ import Homepage from './ProfileContainer'
 function ProfileAPI() {
 
     const [userProfile, setUserProfile] = useState({});
+    const API = 'RGAPI-b472f34f-dd14-42e1-a37a-a26c504ffebe';
       /* Api return values:
       accountId: "ZDq2S_emImYBwDxDIXI7l1CXa4Noq7_af7bNfqKZz0uZcg"
       id: "FURrC3YvfV9rEk45doxgJjYY1g-8cvpYfhNS_sIIc8szFiM"
@@ -14,25 +15,20 @@ function ProfileAPI() {
       revisionDate: 1661647646000
       summonerLevel: 347
 */
-  
-    
-      const fetchData = async () => {
-        const reponse = await axios.get("https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/Doublelift?api_key=RGAPI-0dfc45f0-aa69-4812-b6fd-7c725acee629");
-        setUserProfile(reponse.data);
-        console.log(reponse);
-        console.log("reponse");
-     
-      }
     
 
     useEffect(() => {
-        fetchData();
+      axios.get(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/Doublelift?api_key=${API}`).then(res =>{
+        setUserProfile(res.data);
+        console.log(res);
+
+      });
      },[userProfile.id]);
 
 
     return(
         <>
-        <Homepage data={userProfile}/>
+        <Homepage data={userProfile} API={API}/>
         </>
     )
 }

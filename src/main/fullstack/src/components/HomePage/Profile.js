@@ -19,27 +19,26 @@ const Profile = (props) => {
     summonerId: "FURrC3YvfV9rEk45doxgJjYY1g-8cvpYfhNS_sIIc8szFiM"
     tokensEarned: 0
 */
-    console.log(props.data.id)
     const[champList, setChampList] = useState();
     const[champ1, setChamp1] = useState();
     const[champ2, setChamp2] = useState();
     const[champ3, setChamp3] = useState();
-    let summonerId;
+    const[isLoading, setLoading] = useState(true);
     let champId;
-
-    const getChampID = async () => {  
-        await axios.get(`https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${props.data.id}/?api_key=RGAPI-0dfc45f0-aa69-4812-b6fd-7c725acee629`).then(res =>{
+    console.log(props)
+    
+    
+    useEffect(() =>{
+        axios.get(`https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${props.data[0].id}/?api_key=${props.data[1]}`).then(res =>{
             
         setChampList(res);
+        console.log(champList)
         
-
-        });
-
-        await axios.get("http://ddragon.leagueoflegends.com/cdn/12.16.1/data/en_US/champion.json").then(res =>{
+        axios.get("http://ddragon.leagueoflegends.com/cdn/12.16.1/data/en_US/champion.json").then(res =>{
             
             champId = [champList.data[0].championId,
             champList.data[1].championId,
-            champList.data[2].championId] 
+            champList.data[2].championId]
 
             let champNames = [];
 
@@ -54,17 +53,29 @@ const Profile = (props) => {
                 }
                 
             }
+            setLoading(false);
             
         });
-        
-        
 
+        });
+    }, [props.data[0].id]);  
+
+    if (isLoading) { 
+        return (
+            <>
+            <Col md={4}>
+                <h1>Loading...</h1>
+                </Col>
+            <Col md={4}>
+            <h1>Loading...</h1>
+                </Col>
+            <Col md={4}>
+            <h1>Loading...</h1>
+                </Col>
+                
+            </>
+        )
     }
-
-    useEffect(() =>{
-        getChampID();
-        
-    }, [props.data.id]);  
 
 
     return(
