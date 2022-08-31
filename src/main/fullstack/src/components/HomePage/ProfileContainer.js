@@ -9,13 +9,7 @@ function AutoLayoutExample(props) {
 
   const [accountInfo, setAccountInfo] = useState();
   
-  useEffect(() =>{
 
-    axios.get(`https://americas.api.riotgames.com/riot/account/v1/accounts/by-puuid/${props.data.puuid}/?api_key=${props.API}`).then(res =>{
-    console.log("in axios")
-    console.log(res)
-    })
-  }, [props.data.id])
 
   return (
     <section>

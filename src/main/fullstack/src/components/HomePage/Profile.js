@@ -5,7 +5,6 @@ import Col from 'react-bootstrap/Col';
 import {useState, useEffect} from "react"
 
 const Profile = (props) => {
-
     /*
     Api call results:
 
@@ -24,18 +23,18 @@ const Profile = (props) => {
     const[champ2, setChamp2] = useState();
     const[champ3, setChamp3] = useState();
     const[isLoading, setLoading] = useState(true);
-    let champId;
-    console.log(props)
+    let champId; 
+    console.log(props.data[0].id);
     
     
     useEffect(() =>{
         axios.get(`https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${props.data[0].id}/?api_key=${props.data[1]}`).then(res =>{
             
         setChampList(res);
-        console.log(champList)
         
         axios.get("http://ddragon.leagueoflegends.com/cdn/12.16.1/data/en_US/champion.json").then(res =>{
             
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             champId = [champList.data[0].championId,
             champList.data[1].championId,
             champList.data[2].championId]
@@ -58,7 +57,7 @@ const Profile = (props) => {
         });
 
         });
-    }, [props.data[0].id]);  
+    }, []);  
 
     if (isLoading) { 
         return (
@@ -82,14 +81,14 @@ const Profile = (props) => {
 
         <>
 
-            <Col md={4}>
+            <Col md={4} id="mastery">
                 <img src={`http://ddragon.leagueoflegends.com/cdn/12.16.1/img/champion/${champ1}.png`} alt='' />
                 <h1>Hi</h1>
                 </Col>
-            <Col md={4}>
+            <Col md={4} id="mastery">
                 <img src={`http://ddragon.leagueoflegends.com/cdn/12.16.1/img/champion/${champ2}.png`} alt='' />
                 </Col>
-            <Col md={4}>
+            <Col md={4} id="mastery">
                 <img src={`http://ddragon.leagueoflegends.com/cdn/12.16.1/img/champion/${champ3}.png`} alt='' />
                 </Col>
         </>

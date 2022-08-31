@@ -5,7 +5,8 @@ import Homepage from './ProfileContainer'
 function ProfileAPI() {
 
     const [userProfile, setUserProfile] = useState({});
-    const API = 'RGAPI-b472f34f-dd14-42e1-a37a-a26c504ffebe';
+    const [isLoading, setLoading] = useState(true);
+    const API = 'RGAPI-1e3b3f9d-db7e-41c2-b1e8-08e212a857ab';
       /* Api return values:
       accountId: "ZDq2S_emImYBwDxDIXI7l1CXa4Noq7_af7bNfqKZz0uZcg"
       id: "FURrC3YvfV9rEk45doxgJjYY1g-8cvpYfhNS_sIIc8szFiM"
@@ -20,15 +21,17 @@ function ProfileAPI() {
     useEffect(() => {
       axios.get(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/Doublelift?api_key=${API}`).then(res =>{
         setUserProfile(res.data);
-        console.log(res);
-
+        setLoading(false);
       });
      },[userProfile.id]);
-
-
+     
+     if (isLoading) {
+      return <div>Loading...</div>;
+     }
+     
     return(
         <>
-        <Homepage data={userProfile} API={API}/>
+        <Homepage data={userProfile} API={API}/> 
         </>
     )
 }
