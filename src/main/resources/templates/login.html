@@ -16,18 +16,18 @@
 					<div th:if="${param.error}">
 						<div class="alert alert-danger" > Invalid username or password </div>
 					</div>
-					<input th:field="*{username}" id="username" type="text" class="input-field" placeholder="Member Login" required>
-					<input th:field="*{password}" id="password" type="password" class="input-field" placeholder="Enter Password" required>
+					<input th:field="*{username}" id="username" type="text" class="input-field" placeholder="Member Login" autocomplete="off" required>
+					<input th:field="*{password}" id="password" type="password" class="input-field" placeholder="Enter Password" autocomplete="off" required>
 					<span> <i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle()"></i></span>
 					<input type="checkbox" class="check-box"><span> Remember Password </span>
 					<button type="submit" name="login-submit" id="login-submit" class="submit-btn"> Log In</button>
 				</form>
 				<form th:action="@{/process_register}" method="post" th:object="${user}" id="register" class="input-group">
-					<input th:field="*{username}" type="text" class="input-field" placeholder="Username" required minlength="5" maxlength="16">
-					<input th:field="*{gamerTag}" type="text" class="input-field" placeholder="Gamer-tag" required>
-					<input th:field="*{password}" type="password" class="input-field" placeholder="Enter password" required>
+					<input th:field="*{username}" type="text" class="input-field" placeholder="Username" required minlength="5" maxlength="16" autocomplete="off">
+					<input th:field="*{gamerTag}" type="text" class="input-field" placeholder="Gamer-tag" autocomplete="off" required >
+					<input th:field="*{password}" type="password" class="input-field" placeholder="Enter password" autocomplete="off" required>
 					<span> <i class="fa fa-eye" aria-hidden="true" id="eye1" onclick="toggle()"></i></span>
-					<input th:field="*{confirmPassword}" type="password" class="input-field" placeholder="Confirm password">
+					<input th:field="*{confirmPassword}" type="password" class="input-field" placeholder="Confirm password" autocomplete="off" required>
 					
 					<span> <i class="fa fa-eye" aria-hidden="true" id="eye2" onclick="toggle()"></i></span>
 					<input type="checkbox" class="check-box" required><span> I agree to the terms & conditions </span>
