@@ -48,18 +48,29 @@ public class WelcomeController {
 
     @RequestMapping(value = "/process_register", method = RequestMethod.POST)
     public String processRegistration(User user){
-       BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        if(user.getPassword().equals(user.getConfirmPassword())) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPassword = encoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-
         repo.save(user);
         return "proceed";
+        }
+        else{
+            return "error";
+        }
     }
 
-    @RequestMapping(value = "/proceed_login", method = RequestMethod.GET)
+    @RequestMapping(value = "/process_register", method = RequestMethod.GET)
+    public String successfulRegister(){
+       return "proceed";
+    }
+
+
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String sucessfulLogin(){
 
-        return "proceed_login";
+        return "index";
     }
 
 

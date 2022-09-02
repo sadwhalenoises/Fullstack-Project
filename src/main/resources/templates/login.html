@@ -27,7 +27,8 @@
 					<input th:field="*{gamerTag}" type="text" class="input-field" placeholder="Gamer-tag" required>
 					<input th:field="*{password}" type="password" class="input-field" placeholder="Enter password" required>
 					<span> <i class="fa fa-eye" aria-hidden="true" id="eye1" onclick="toggle()"></i></span>
-					<input th:field="*{password}" type="password" class="input-field" placeholder="Confirm password">
+					<input th:field="*{confirmPassword}" type="password" class="input-field" placeholder="Confirm password">
+					
 					<span> <i class="fa fa-eye" aria-hidden="true" id="eye2" onclick="toggle()"></i></span>
 					<input type="checkbox" class="check-box" required><span> I agree to the terms & conditions </span>
 					<button type="submit" class="submit-register-btn"> Register </button>
@@ -52,18 +53,7 @@
 				z.style.left = "0px";
 			}
 			
-			function validate(){
-				let username = document.getElementById("username").value;
-				let password = document.getElementById("password").value;
-				
-				if(username === "admin" && password === "password"){
-					alert("Login Successfully");
-					window.location.href="welcome.html";
-				}
-				else{
-					alert("Wrong password");
-				}
-			}
+		
 			
 			let state = false;
 			
@@ -78,6 +68,6 @@
 				}
 			}
 		</script>
-		
+	
 	</body>
 </html>

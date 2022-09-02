@@ -2,6 +2,8 @@ package com.example.FullStack.users;
 
 import javax.persistence.*;
 
+
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -16,6 +18,14 @@ public class User {
     @Column(nullable = false, length = 64)
     private String password;
 
+
+    @Transient
+    private String confirmPassword;
+
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
 
     public Long getId() {
         return id;
@@ -47,5 +57,10 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 }
