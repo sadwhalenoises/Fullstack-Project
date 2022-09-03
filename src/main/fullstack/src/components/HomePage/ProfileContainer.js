@@ -8,10 +8,8 @@ import axios from 'axios';
 function AutoLayoutExample(props) {
 
   const [accountInfo, setAccountInfo] = useState();
+  
 
-  const accountData = async () => {
-    const response = await axios.get(`https://na1.api.riotgames.com//riot/account/v1/accounts/by-puuid/${props.data.puuid}/?api_key=RGAPI-0dfc45f0-aa69-4812-b6fd-7c725acee629`)
-  }
 
   return (
     <section>
@@ -30,7 +28,7 @@ function AutoLayoutExample(props) {
         <br />
         <Row className='justify-content-start'>
           <Col className='topChamps'>
-          <Profile data={props.data}/>
+          <Profile data={[props.data, props.API]} />
           </Col>
         </Row>
     </Container>
