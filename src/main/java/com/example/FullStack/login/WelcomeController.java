@@ -4,12 +4,16 @@ package com.example.FullStack.login;
 import com.example.FullStack.users.User;
 import com.example.FullStack.users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.management.Notification;
 import java.util.Optional;
 
 @Controller
@@ -32,23 +36,14 @@ public class WelcomeController {
         return "login";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String processLogin(@ModelAttribute("user") User user){
-        String username = user.getUsername();
-        User newUser = repo.findByUsername(username);
-        if(user.getPassword().equals(newUser.getPassword())){
-            System.out.println("proceeed");
-            return "proceed";
-        }
-        else {
-            System.out.println("error");
-            return "error";
-        }
+    private String getLoggedinUsername() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getName();
     }
 
-    @RequestMapping(value = "/process_register", method = RequestMethod.POST)
-    public String processRegistration(User user){
 
+    @RequestMapping(value = "/invalid_password", method = RequestMethod.POST)
+    public String processRegistration(User user){
         if(user.getPassword().equals(user.getConfirmPassword())) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPassword = encoder.encode(user.getPassword());
@@ -56,9 +51,10 @@ public class WelcomeController {
         repo.save(user);
         return "proceed";
         }
-        else{
+        else {
             return "error";
         }
+
     }
 
     @RequestMapping(value = "/process_register", method = RequestMethod.GET)
@@ -68,10 +64,9 @@ public class WelcomeController {
 
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String sucessfulLogin(){
-
+    public String successfulLogin(ModelMap modelMap){
+        modelMap.put("user", getLoggedinUsername());
         return "index";
     }
-
 
 }
