@@ -12,7 +12,7 @@ const LastMatch = (props) => {
     const [lastMatchData, setLastMatchData] = useState({})
     const [lastMatchPlayerData, setLastMatchPlayerData] = useState({})
 
-    const API_KEY = "RGAPI-cb9fe844-b8ad-444e-8756-22d52b7e65a3";
+    const API_KEY = ;
 
     let puuid = undefined
 
