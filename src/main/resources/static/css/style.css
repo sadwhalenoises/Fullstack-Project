@@ -93,6 +93,7 @@
 
 }
 .input-field{
+    color: #ffad06;
     text-align: center;
     width: 100%;
     padding: 10px 0;
@@ -104,6 +105,11 @@
     -webkit-text-fill-color: #ffad06;
     outline: none;
     background: transparent;
+
+}
+
+input:focus::-webkit-input-placeholder {
+    opacity: 0;
 }
 
 .submit-btn{

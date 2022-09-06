@@ -211,3 +211,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   height: 80px;
   width: 80px;
 }
+
+#mastery{
+  background-image: url(./imgs/mastery.jpg);
+  background-color: #4e2f2f;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
